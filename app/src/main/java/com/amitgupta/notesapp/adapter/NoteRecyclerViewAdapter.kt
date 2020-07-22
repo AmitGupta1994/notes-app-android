@@ -23,7 +23,12 @@ class NoteRecyclerViewAdapter(val context: Context?, var notes: List<Note>?) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        val item: Note = notes!!.get(position)
 
+        viewHolder.note_content?.text = item.noteContent
+        viewHolder.note_created_at?.text = Utils.getDateAndTime(item.noteCreatedAt)
+
+        viewHolder.itemView.setOnClickListener { listener.onClick(it, position) }
     }
 
     override fun getItemCount(): Int {
@@ -31,7 +36,8 @@ class NoteRecyclerViewAdapter(val context: Context?, var notes: List<Note>?) :
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        val note_content = view.note_container
+        val note_created_at = view.note_created_at
     }
 
     interface OnItemClickListener {
