@@ -26,6 +26,15 @@ class AboutUsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about_us)
 
+        title = "About"
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeButtonEnabled(true)
+
+        about_app_version.text = "Version: " + BuildConfig.VERSION_NAME
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            about_us.justificationMode = JUSTIFICATION_MODE_INTER_WORD
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
