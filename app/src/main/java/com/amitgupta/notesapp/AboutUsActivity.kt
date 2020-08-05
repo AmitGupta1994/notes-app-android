@@ -1,4 +1,4 @@
-package com.amitgupta.notesapp.utils
+package com.amitgupta.notesapp
 
 import android.content.Context
 import android.content.Intent
@@ -7,8 +7,6 @@ import android.os.Bundle
 import android.text.Layout.JUSTIFICATION_MODE_INTER_WORD
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.amitgupta.notesapp.BuildConfig
-import com.amitgupta.notesapp.R
 import kotlinx.android.synthetic.main.activity_about_us.*
 
 class AboutUsActivity : AppCompatActivity() {
