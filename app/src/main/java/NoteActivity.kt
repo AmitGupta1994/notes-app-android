@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.amitgupta.notesapp.entity.Note
 import com.amitgupta.notesapp.room.DatabaseService
+import com.amitgupta.notesapp.utils.Utils
+import kotlinx.android.synthetic.main.activity_note.*
 
 
 class NoteActivity : AppCompatActivity() {
@@ -77,6 +80,35 @@ class NoteActivity : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun saveNote() {
+        if (note_content_set.text!!.isEmpty())
+            note_content_set.error = "Please make a note. Your note is empty."
+        else {
+            val note = databaseService.getLastNote()
+
+            var noteID = note?.noteId ?: 0
+
+            val noteId = noteID + 1
+
+            val success = databaseService.insertNote(
+                Note(
+                    noteId,
+                    note_content_set.text.toString(),
+                    mNoteCreatedAt
+                )
+            )
+
+            if (success == 1) {
+                Utils.showSnackBar(
+                    findViewById(android.R.id.content),
+                    "Note inserted successfully."
+                )
+            }
+
+            onBackPressed()
         }
     }
 
