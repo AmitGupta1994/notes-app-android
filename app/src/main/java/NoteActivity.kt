@@ -112,4 +112,19 @@ class NoteActivity : AppCompatActivity() {
         }
     }
 
+    private fun deleteNote() {
+        val note = databaseService.getNoteByNoteId(noteId)
+
+        val success = databaseService.deleteNote(note!!)
+
+        if (success == 1) {
+            Utils.showSnackBar(
+                findViewById(android.R.id.content),
+                "Note deleted successfully."
+            )
+        }
+
+        onBackPressed()
+    }
+
 }
