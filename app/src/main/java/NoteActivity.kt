@@ -127,4 +127,31 @@ class NoteActivity : AppCompatActivity() {
         onBackPressed()
     }
 
+
+    private fun updateNote() {
+        when {
+            note_content_set.text!!.isEmpty() -> {
+                note_content_set.error = "Please make a note. Your note is empty."
+            }
+            else -> {
+                val success = databaseService.updateNote(
+                    Note(
+                        noteId,
+                        note_content_set.text.toString(),
+                        mNoteCreatedAt
+                    )
+                )
+
+                if (success == 1) {
+                    Utils.showSnackBar(
+                        findViewById(android.R.id.content),
+                        "Note updated successfully."
+                    )
+                }
+
+                onBackPressed()
+            }
+        }
+    }
+
 }
