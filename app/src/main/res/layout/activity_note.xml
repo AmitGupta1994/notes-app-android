@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:padding="16dp"
-    tools:context=".NoteActivity">
+    tools:context=".com.amitgupta.notesapp.NoteActivity">
 
     <ImageView
         android:id="@+id/note_content_icon"

@@ -1,4 +1,4 @@
-package com.amitgupta.notesapp
+package com.amitgupta.notesapp.com.amitgupta.notesapp
 
 import android.content.Context
 import android.content.Intent
@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.amitgupta.notesapp.R
 import com.amitgupta.notesapp.entity.Note
 import com.amitgupta.notesapp.room.DatabaseService
 import com.amitgupta.notesapp.utils.Utils
-import kotlinx.android.synthetic.main.activity_note.*
 
 
 class NoteActivity : AppCompatActivity() {
