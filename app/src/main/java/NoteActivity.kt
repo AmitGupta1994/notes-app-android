@@ -147,7 +147,6 @@ class NoteActivity : AppCompatActivity() {
                         "Note updated successfully."
                     )
                 }
-
                 onBackPressed()
             }
         }
